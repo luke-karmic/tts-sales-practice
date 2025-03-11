@@ -1,4 +1,3 @@
-
 module.exports.skepticalAnswers = {
   "motivator": "We’ve been trying to grow, but I just don’t think ads work for our business. We’ve wasted so much money in the past, and nothing changed.",
   "expand-on-x": "We spent a ton on Facebook ads and Google, but it felt like we got nothing in return. Sales didn’t go up, and we didn’t get any new clients.",
@@ -40,3 +39,16 @@ module.exports.analyticalAnswers = {
   // "have-you-tried-ads": "Yes, we’ve used PPC through Facebook and Google.",
   // "reason-not-ads": "We want to optimize better and get a better ROAS, but we’ve been struggling to manage it effectively."
 };
+
+module.exports.getRandomGreeting = () => {
+  greetings = [
+    "Hey, how are you?",
+    "Hi there, hope you're doing well!",
+    "Hello, how's it going?",
+    "Good day, how have you been?",
+    "Hey, what's up?"
+  ];
+
+  const randomIndex = Math.floor(Math.random() * greetings.length);
+  return greetings[randomIndex];
+}

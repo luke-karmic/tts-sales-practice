@@ -4,7 +4,7 @@ const path = require("path");
 const os = require('os');
 const { getVoiceSettings } = require('./voice.js')
 const { initializeRunFolder } = require('./runs')
-const { skepticalAnswers, busyAnswers, analyticalAnswers } = require('./ordered_questions');
+const { skepticalAnswers, busyAnswers, analyticalAnswers, getRandomGreeting } = require('./ordered_questions');
 
 function getRandomProspect() {
   const prospects = ["skeptical", "busy", "analytical"];
@@ -17,12 +17,23 @@ const selectedProspect = getRandomProspect();
 
 // Function to retrieve answers based on selected prospect personality
 function getProspectAnswers(prospectType) {
+  const greeting = getRandomGreeting(); // Select a random greeting
+
   if (prospectType === "skeptical") {
-    return skepticalAnswers;
+    return {
+      greeting: greeting,
+      ...skepticalAnswers
+    };
   } else if (prospectType === "busy") {
-    return busyAnswers;
+    return {
+      greeting: greeting,
+      ...busyAnswers
+    };
   } else if (prospectType === "analytical") {
-    return analyticalAnswers;
+    return {
+      greeting: greeting,
+      ...analyticalAnswers
+    };
   }
 }
 
@@ -113,7 +124,7 @@ async function askQuestion() {
           const record = spawn("rec", [
             filename,
             "silence", "1", "0.1", "1%",
-            "1", "3.0", "1%"
+            "1", "2.0", "1%"
           ]);
 
           record.on("exit", () => {
