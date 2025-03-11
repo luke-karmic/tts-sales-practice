@@ -1,0 +1,4 @@
+node_modules/*
+objections/
+questions/
+package-lock.json
