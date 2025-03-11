@@ -2,3 +2,5 @@ node_modules/*
 objections/
 questions/
 package-lock.json
+ordered_questions.json
+random_objections.js
