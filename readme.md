@@ -84,7 +84,7 @@ _Below is an example of how you can instruct your audience on installing and set
    ```
 2. Add or modify the prospect type array
    ```sh
-  const prospects = ["skeptical", "busy", "analytical"];
+      const prospects = ["skeptical", "busy", "analytical"];
    ```
 3. Run the script
    ```sh
