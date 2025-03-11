@@ -6,7 +6,7 @@ const path = require("path");
 const os = require('os');
 const { initializeRunFolder } = require('./runs')
 const { getVoiceSettings } = require('./voice')
-const objections = require('./random_objections');
+const objections = require('./data/random_objections');
 
 // Global variable to store the run folder for the session and a set to track asked objections
 let runFolder = null;

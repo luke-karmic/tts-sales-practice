@@ -5,3 +5,4 @@ package-lock.json
 ordered_questions.json
 random_objections.js
 .env
+out/

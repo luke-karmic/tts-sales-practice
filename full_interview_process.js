@@ -4,9 +4,9 @@ const { spawn } = require("child_process");
 const fs = require("fs");
 const path = require("path");
 const os = require('os');
-const { getVoiceSettings } = require('./voice.js')
-const { initializeRunFolder } = require('./runs')
-const { skepticalAnswers, busyAnswers, analyticalAnswers, getRandomGreeting } = require('./ordered_questions');
+const { getVoiceSettings } = require('./lib/voice.js')
+const { initializeRunFolder } = require('./lib/runs')
+const { skepticalAnswers, busyAnswers, analyticalAnswers, getRandomGreeting } = require('./data/ordered_questions');
 
 function getRandomProspect() {
   const prospects = ["skeptical", "busy", "analytical"];

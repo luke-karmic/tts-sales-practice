@@ -53,6 +53,7 @@
 * This is built as a quick sales call practice tool
 * You can hardcode the questions for now and it will just iterate through them, either randomly or in order
 * Super simple, built in a couple hours for a quick use case in mind but thought I'd leave it open incase some one finds it helpful, don't expect fancy code
+* All recordings are stored in out/ by default
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -72,6 +73,7 @@ _Below is an example of how you can instruct your audience on installing and set
    ```npm install
    ```
 3. Create a `.env` file, use the example
+3. Creat an out directory matching `.env` file i.e. `./out/questions` & `./out/objections`
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
