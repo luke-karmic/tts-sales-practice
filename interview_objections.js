@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 const { spawn } = require("child_process");
 const fs = require("fs");
 const path = require("path");
@@ -97,13 +99,12 @@ async function askObjection() {
           const record = spawn("rec", [
             filename,
             "silence", "1", "0.1", "1%",  // Start recording on sound detection
-            "1", "3.0", "1%"        // Stop if silent for 3 seconds
+            "1", process.env.SILENCE_DELAY_END_REC, "1%"        // Stop if silent for 2 seconds
           ]);
 
           record.on("exit", () => {
             console.log(`Recording saved as: ${filename}\n`);
-            // After recording, proceed to ask the next objection
-            setTimeout(askObjection, 3000); // Ask another question after 3 seconds
+            setTimeout(askObjection, process.env.NEXT_QUESTION_DELAY);
           });
 
           record.on("error", (err) => {

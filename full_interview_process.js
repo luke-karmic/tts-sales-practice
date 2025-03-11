@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 const { spawn } = require("child_process");
 const fs = require("fs");
 const path = require("path");
@@ -112,7 +114,6 @@ async function askQuestion() {
       player.on('error', (err) => {
         console.error('Error playing audio:', err);
       });
-
       player.on('exit', (code) => {
         if (code !== 0) {
           console.log(`Audio player exited with code ${code}`);
@@ -124,13 +125,19 @@ async function askQuestion() {
           const record = spawn("rec", [
             filename,
             "silence", "1", "0.1", "1%",
-            "1", "2.0", "1%"
+            "1", process.env.SILENCE_DELAY_END_REC, "1%"
           ]);
 
           record.on("exit", () => {
             console.log(`Recording saved as: ${filename}\n`);
             // After recording, proceed to ask the next question
-            setTimeout(askQuestion, 3000); // Ask another question after 3 seconds
+            const delay = parseInt(process.env.NEXT_QUESTION_DELAY, 10) * 1000;
+            if (!isNaN(delay)) {
+              console.log(`Waiting ${process.env.NEXT_QUESTION_DELAY}'s until next question`);
+              setTimeout(askQuestion, delay); // Ask another question after the specified delay
+            } else {
+              console.log('Invalid delay value in environment variable');
+            }
           });
 
           record.on("error", (err) => {

@@ -68,6 +68,10 @@ _Below is an example of how you can instruct your audience on installing and set
    ```sh
    https://github.com/luke-karmic/tts-sales-practice
    ```
+2. Clone the repo
+   ```npm install
+   ```
+3. Create a `.env` file, use the example
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
