@@ -46,17 +46,16 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
+* It is to quiz you on sales call objections, or recording your responses to a sales call structure.
+* The idea is you can test for each type of prospect i.e. Analytical, Skeptical and test your recorded responses for a make believe script
+* If you find it useful, please show a little love! Cheers
 * Uses Google TTS to asks questions, records the output and continues the flow until reaching the end.
 * This is built as a quick sales call practice tool
 * You can hardcode the questions for now and it will just iterate through them, either randomly or in order
-* Super simple, built in a couple hours, so don't expect fancy code or anything.
-* If you find it useful, please show a little love! Cheers
-  * Didn't even use TS or put time to refactor properly
+* Super simple, built in a couple hours for a quick use case in mind but thought I'd leave it open incase some one finds it helpful, don't expect fancy code
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
 
 <!-- GETTING STARTED -->
 ## Getting Started
@@ -77,7 +76,17 @@ _Below is an example of how you can instruct your audience on installing and set
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-1. Run the script
+1. Add the corresponding q/a files ./random_objections or ./random_objections
+   ```sh
+   module.exports.skepticalAnswers = {}
+   module.exports.busyAnswers = {}
+   module.exports.analyticalAnswers = {}
+   ```
+2. Add or modify the prospect type array
+   ```sh
+  const prospects = ["skeptical", "busy", "analytical"];
+   ```
+3. Run the script
    ```sh
    node full_interview_process.js
    ```
